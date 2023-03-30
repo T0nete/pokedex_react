@@ -1,0 +1,31 @@
+
+.listContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.pokemonList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    flex-direction: column;  
+    gap: 32px;
+    align-items: center;
+}
+
+.pokemonCard{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;  
+    align-items: center;
+    
+    background-color: cadetblue;
+
+}
+
+.typesRow {
+    display: flex;
+    justify-content: space-evenly;
+}
