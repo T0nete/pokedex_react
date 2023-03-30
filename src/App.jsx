@@ -1,4 +1,4 @@
-import './App.css'
+import './components/PokemonList.css'
 import { PokemonList } from './components/PokemonList'
 import { usePokemon } from './hooks/usePokemon'
 
@@ -6,11 +6,9 @@ function App () {
   const { pokemonList } = usePokemon()
 
   return (
-    <div className='App'>
+    <div className='bodyContent'>
       <h1>Pokedex</h1>
-        <PokemonList pokemonList={pokemonList}/>
-      <ul />
-
+      <PokemonList pokemonList={pokemonList}/>
     </div>
   )
 }

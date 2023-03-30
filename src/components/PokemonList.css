@@ -1,31 +1,44 @@
 
-.listContent {
+h1 {
+    text-align: center;
+}
+
+.bodyContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     max-width: 1000px;
-}
+  }
+  
 
-.pokemonList {
+.pokemonList{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    flex-direction: column;  
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    flex-direction: column;
     gap: 32px;
     align-items: center;
 }
 
-.pokemonCard{
+.pokemonCard {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;  
-    align-items: center;
-    
-    background-color: cadetblue;
-
+    text-align: center;
+    border-radius: 16px;
+    background-color: #223f58;
+    padding: 0 16px 16px 16px;
+    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.3);
+    align-self: normal;
 }
 
 .typesRow {
     display: flex;
     justify-content: space-evenly;
+}
+.typeIcon {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
 }
