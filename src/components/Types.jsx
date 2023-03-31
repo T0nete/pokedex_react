@@ -17,35 +17,33 @@ import rockIcon from '../assets/rock.svg'
 import steelIcon from '../assets/steel.svg'
 import waterIcon from '../assets/water.svg'
 
-export function TypeIcon ({type})  {
-    console.log(type)
-    console.log(getIcon(type.toString()))
-    return (
-        <img className='typeIcon' src={getIcon({type})} alt={type}/>
-    )
+export function TypeIcon ({ type }) {
+  return (
+        <img className='typeIcon' src={getIcon({ type })} alt={type}/>
+  )
 }
 
-const getIcon = ({type}) => {
-    switch(type) {
-        case 'bug': return bugIcon
-        case 'dark': return darkIcon
-        case 'dragon' : return dragonIcon
-        case 'electric' : return electricIcon
-        case 'fairy' : return fairyIcon
-        case 'fighting' : return fightingIcon
-        case 'fire' : return fireIcon
-        case 'flying' : return flyingIcon
-        case 'ghost' : return ghostIcon
-        case 'grass' :  return grassIcon
-        case 'ground' : return groundIcon
-        case 'ice' : return iceIcon
-        case 'normal': return normalIcon
-        case 'poison' : return poisonIcon
-        case 'psychic' : return psychicIcon
-        case 'rock' : return rockIcon
-        case 'steel' : return steelIcon
-        case 'water' : return waterIcon
-    }
+const getIcon = ({ type }) => {
+  switch (type) {
+    case 'bug': return bugIcon
+    case 'dark': return darkIcon
+    case 'dragon' : return dragonIcon
+    case 'electric' : return electricIcon
+    case 'fairy' : return fairyIcon
+    case 'fighting' : return fightingIcon
+    case 'fire' : return fireIcon
+    case 'flying' : return flyingIcon
+    case 'ghost' : return ghostIcon
+    case 'grass' : return grassIcon
+    case 'ground' : return groundIcon
+    case 'ice' : return iceIcon
+    case 'normal': return normalIcon
+    case 'poison' : return poisonIcon
+    case 'psychic' : return psychicIcon
+    case 'rock' : return rockIcon
+    case 'steel' : return steelIcon
+    case 'water' : return waterIcon
+  }
 }
 
 const BugType = () => {

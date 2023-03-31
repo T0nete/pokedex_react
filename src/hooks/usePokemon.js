@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react'
 import { getPokemon } from '../services/getPokemon'
 
-export const usePokemon = () => {
+export const usePokemon = ({ startEnd }) => {
   const [pokemonList, setPokemonList] = useState([])
-  const [startEnd, setStartEnd] = useState([1, 20]) // estado global
+  const [loadingPokemon, setLoadingPokemon] = useState(false)
+  const [errorPokemon, setErrorPokemon] = useState('')
 
-  async function fetchPokemonList() {
+  async function fetchPokemonList () {
     const list = []
 
     for (let i = startEnd[0]; i <= startEnd[1]; i++) {
       list.push(await getPokemon(i))
     }
 
-    console.log(list)
-
     setPokemonList(list)
   }
 
   useEffect(() => {
-    fetchPokemonList()
+    try {
+      setLoadingPokemon(true)
+      fetchPokemonList()
+    } catch (error) {
+      setErrorPokemon(error.message)
+    } finally {
+      setLoadingPokemon(false)
+    }
   }, [])
 
-  return { pokemonList }
+  return { pokemonList, loadingPokemon, errorPokemon }
 }
