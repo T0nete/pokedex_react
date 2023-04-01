@@ -1,15 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { getPokemon } from '../services/getPokemon'
+import { PokemonPaginationContext } from '../contexts/pokemonPagination'
 
-export const usePokemon = ({ startEnd }) => {
+export const usePokemon = () => {
   const [pokemonList, setPokemonList] = useState([])
   const [loadingPokemon, setLoadingPokemon] = useState(false)
   const [errorPokemon, setErrorPokemon] = useState('')
 
+  const { pokemonPagination } = useContext(PokemonPaginationContext)
+
   async function fetchPokemonList () {
     const list = []
 
-    for (let i = startEnd[0]; i <= startEnd[1]; i++) {
+    for (let i = pokemonPagination.start; i <= pokemonPagination.end; i++) {
       list.push(await getPokemon(i))
     }
 
@@ -25,7 +28,7 @@ export const usePokemon = ({ startEnd }) => {
     } finally {
       setLoadingPokemon(false)
     }
-  }, [])
+  }, [pokemonPagination])
 
   return { pokemonList, loadingPokemon, errorPokemon }
 }
