@@ -1,0 +1,4 @@
+.paginationInput{
+    display: flex;
+    flex-direction: row;
+}
