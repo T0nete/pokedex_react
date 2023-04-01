@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { usePokemon } from '../hooks/usePokemon'
 import './PokemonList.css'
 import { TypeIcon } from './Types'
@@ -9,16 +10,18 @@ export function PokemonList () {
     <ul className='pokemonList'>
     {
         pokemonList.map(pokemon => (
-            <li key={pokemon.name} className='pokemonCard'>
-                <h3>{pokemon.name.toUpperCase()}</h3>
-                <img src={pokemon.img} alt={pokemon.name} />
-                <div className='typesRow'>
-                    {
-                    pokemon.types.map(type => (
-                        <TypeIcon key={`${pokemon.name}-${type}`} type={type} />
-                    ))
-                    }
-                </div>
+            <li key={pokemon.id} className='pokemonCard'>
+                <Link to={`pokemon/${pokemon.name}`}>
+                    <h3>{pokemon.name.toUpperCase()}</h3>
+                    <img src={pokemon.img} alt={pokemon.name} />
+                    <div className='typesRow'>
+                        {
+                        pokemon.types.map(type => (
+                            <TypeIcon key={`${pokemon.name}-${type}`} type={type} />
+                        ))
+                        }
+                    </div>
+                </Link>
             </li>
         ))
     }

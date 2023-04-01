@@ -1,4 +1,7 @@
+.rowFilters {
+    display: flex;
+}
+
 .paginationInput{
     display: flex;
-    flex-direction: row;
 }
