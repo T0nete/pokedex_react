@@ -7,12 +7,17 @@ export const usePokemon = () => {
   const [loadingPokemon, setLoadingPokemon] = useState(false)
   const [errorPokemon, setErrorPokemon] = useState('')
 
-  const { pokemonPagination } = useContext(PokemonPaginationContext)
+  const { paginationNumber, pokemonPagination } = useContext(PokemonPaginationContext)
 
-  async function fetchPokemonList () {
+  async function fetchPokemonList() {
+    const start = pokemonPagination.start
+    const end = pokemonPagination.end
+
+    console.log('start=' + start)
+    console.log('end=' + pokemonPagination.end)
     const list = []
 
-    for (let i = pokemonPagination.start; i <= pokemonPagination.end; i++) {
+    for (let i = start; i <= pokemonPagination.end; i++) {
       list.push(await getPokemon(i))
     }
 
@@ -28,7 +33,7 @@ export const usePokemon = () => {
     } finally {
       setLoadingPokemon(false)
     }
-  }, [pokemonPagination])
+  }, [pokemonPagination, paginationNumber])
 
   return { pokemonList, loadingPokemon, errorPokemon }
 }

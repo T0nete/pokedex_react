@@ -5,6 +5,7 @@ export function Filters () {
   const { setPaginationNumber } = useContext(PokemonPaginationContext)
 
   const handleOnSelect = (event) => {
+    console.log('pagination ' + event.target.value)
     setPaginationNumber(event.target.value)
   }
 

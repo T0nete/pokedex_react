@@ -6,8 +6,8 @@ export function NextPreviousPokemon () {
 
   const handleOnClickNext = () => {
     setPokemonPagination(prevState => ({
-      start: prevState.start + paginationNumber,
-      end: prevState.end + paginationNumber
+      start: parseInt(prevState.start) + parseInt(paginationNumber),
+      end: parseInt(prevState.end) + parseInt(paginationNumber)
     }))
   }
 
@@ -15,12 +15,13 @@ export function NextPreviousPokemon () {
     setPokemonPagination(prevState => {
       if (prevState.start > paginationNumber) {
         return {
-          start: prevState.start - paginationNumber,
-          end: prevState.end - paginationNumber
+          start: parseInt(prevState.start) - parseInt(paginationNumber),
+          end: parseInt(prevState.end) - parseInt(paginationNumber)
         }
       }
       return {
-        ...prevState
+        start: 1,
+        end: paginationNumber
       }
     })
   }

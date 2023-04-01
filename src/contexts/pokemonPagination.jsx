@@ -11,16 +11,21 @@ export function PokemonPaginationProvider ({ children }) {
 
   useEffect(() => {
     setPokemonPagination(prevState => {
-      if (prevState.start === 1) {
-        const end = prevState.end + (paginationNumber - prevState.end)
-        return {
-          start: prevState.start,
-          end
-        }
-      }
+      // const end = parseInt(prevState.end) + (parseInt(paginationNumber) - parseInt(prevState.end))
+      const end = parseInt(prevState.start - 1) + parseInt(paginationNumber)
+      // console.log('end ' + end)
+      // if (prevState.start === 1) {
       return {
-        ...prevState
+        start: prevState.start,
+        end
       }
+      // }
+      // const start = parseInt(prevState.start) + (parseInt(paginationNumber) - parseInt(prevState.start))
+      // console.log('start ' + start)
+      // return {
+      //   start,
+      //   end
+      // }
     })
   }, [paginationNumber])
 
