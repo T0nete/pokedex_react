@@ -2,11 +2,22 @@
     gap: 16px;
 }
 
+.detailsContent {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    align-items: center;
+}
+
+img {
+    object-fit: contain;
+}
+
 .statRow {
     list-style: none;
-    display: flex;
-    flex-direction: row;
     gap: 10px;
+    display: grid;
+    grid-template-columns: 5fr 9fr;
+    align-items: center;
 }
 
 .baseStatLine {
