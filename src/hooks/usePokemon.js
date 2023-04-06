@@ -63,5 +63,5 @@ export const usePokemon = () => {
     }
   }
 
-  return { pokemonList, loadingPokemon, errorPokemon, fetchPokemonByName, searchPokemon, setSearchPokemon }
+  return { pokemonList, fetchPokemonList, loadingPokemon, errorPokemon, fetchPokemonByName, searchPokemon, setSearchPokemon }
 }

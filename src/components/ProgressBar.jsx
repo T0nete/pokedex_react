@@ -1,6 +1,6 @@
 import './ProgressBar.css'
 
-const MAX_STAT = 115
+const MAX_STAT = 150
 
 export function ProgressBar ({ baseStat }) {
   const widthStat = parseInt(baseStat) / parseInt(MAX_STAT) * parseInt(100)

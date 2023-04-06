@@ -6,13 +6,13 @@ import { Filters } from '../components/Filters'
 import { usePokemon } from '../hooks/usePokemon'
 
 function PokemonHomePage () {
-  const { pokemonList, loadingPokemon, errorPokemon, fetchPokemonByName, setSearchPokemon } = usePokemon()
+  const { pokemonList, loadingPokemon, errorPokemon, setSearchPokemon, fetchPokemonList } = usePokemon()
 
   return (
     <PokemonPaginationProvider>
       <div className='bodyContent'>
         <h1>Pokedex</h1>
-        <Filters setSearchPokemon={fetchPokemonByName} setSearchPokemon={setSearchPokemon}/>
+        <Filters setSearchPokemon={setSearchPokemon} fetchPokemonList={fetchPokemonList}/>
         <PokemonList pokemonList={pokemonList}/>
         <NextPreviousPokemon />
       </div>
