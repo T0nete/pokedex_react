@@ -8,14 +8,14 @@ export function ProgressBar ({ baseStat }) {
   const progressBarBackground = {
     height: 15,
     width: '100%',
-    backgroundColor: '#e0e0de',
+    backgroundColor: '#161f27',
     borderRadius: 50
   }
 
   const progressBarStat = {
     height: '100%',
     width: `${widthStat}%`,
-    backgroundColor: '#ff0000',
+    backgroundColor: '#223f58',
     borderRadius: 'inherit',
     textAlign: 'right'
   }

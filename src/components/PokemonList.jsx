@@ -1,17 +1,15 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
-import { usePokemon } from '../hooks/usePokemon'
 import './PokemonList.css'
 import { TypeIcon } from './Types'
 
-export function PokemonList () {
-  const { pokemonList, loadingPokemon, errorPokemon } = usePokemon()
-
+export function PokemonList ({ pokemonList }) {
   return (
     <ul className='pokemonList'>
     {
         pokemonList.map(pokemon => (
             <li key={pokemon.id} className='pokemonCard'>
-                <Link to={`pokemon/${pokemon.name}`}>
+                <Link to={`pokemon/${pokemon.name}`} style={{ textDecoration: 'none' }}>
                     <h3>{pokemon.name.toUpperCase()}</h3>
                     <img src={pokemon.img} alt={pokemon.name} />
                     <div className='typesRow'>

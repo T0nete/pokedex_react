@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './routes/errorPage'
 import { PokemonDetail } from './routes/pokemonDetailPage'
 import PokemonHomePage from './routes/App'
+import { PokemonPaginationProvider } from './contexts/pokemonPagination'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+
+    <PokemonPaginationProvider>
+      <RouterProvider router={router} />
+    </PokemonPaginationProvider>
   </React.StrictMode>
 )

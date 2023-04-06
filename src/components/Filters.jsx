@@ -1,10 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useContext } from 'react'
 import { PokemonPaginationContext } from '../contexts/pokemonPagination'
-import { usePokemon } from '../hooks/usePokemon'
 
-export function Filters () {
+export function Filters ({ fetchPokemonByName, setSearchPokemon }) {
   const { setPaginationNumber } = useContext(PokemonPaginationContext)
-  const { fetchPokemonByName, searchPokemon, setSearchPokemon } = usePokemon()
 
   const handleOnSelect = (event) => {
     console.log('pagination ' + event.target.value)
@@ -12,13 +11,15 @@ export function Filters () {
   }
 
   const handleOnChange = (event) => {
-    setSearchPokemon(event.target.value)
+    fetchPokemonByName(event.target.value)
   }
 
   const handleOnSubmit = (event) => {
+    console.log(event.target.searchPokemon.value)
     event.preventDefault()
     // console.log(event.target.searchPokemon.value)
-    fetchPokemonByName(event.target.searchPokemon.value)
+    setSearchPokemon(event.target.searchPokemon.value)
+    // fetchPokemonByName(event.target.searchPokemon.value)
     // setSearchPokemon(event.target.searchPokemon.value)
   }
 

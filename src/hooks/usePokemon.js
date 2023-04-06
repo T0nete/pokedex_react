@@ -10,7 +10,7 @@ export const usePokemon = () => {
 
   const { paginationNumber, pokemonPagination } = useContext(PokemonPaginationContext)
 
-  async function fetchPokemonList() {
+  async function fetchPokemonList () {
     const start = pokemonPagination.start
     const end = pokemonPagination.end
 
@@ -26,7 +26,7 @@ export const usePokemon = () => {
   }
 
   useEffect(() => {
-    console.log('fetchPokemonList')
+    console.log('useEffect')
     try {
       setLoadingPokemon(true)
       fetchPokemonList()
@@ -37,13 +37,28 @@ export const usePokemon = () => {
     }
   }, [pokemonPagination, paginationNumber])
 
-  async function fetchPokemonByNameService(search) {
-    setPokemonList(await getPokemonByName(search))
-    console.log(pokemonList)
+  async function fetchPokemonByNameService () {
+    const list = []
+    const pokemon = await getPokemonByName(searchPokemon)
+    list.push(pokemon)
+    await setPokemonList(list)
   }
 
+  useEffect(() => {
+    if (!searchPokemon) return
+
+    try {
+      setLoadingPokemon(true)
+      fetchPokemonByNameService()
+    } catch (error) {
+      setErrorPokemon(error.message)
+    } finally {
+      setLoadingPokemon(false)
+    }
+  }, [searchPokemon])
+
   const fetchPokemonByName = (search) => {
-    if (searchPokemon) {
+    if (search) {
       fetchPokemonByNameService(search)
     }
   }

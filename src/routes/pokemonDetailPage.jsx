@@ -1,36 +1,44 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+
 import { usePokemonDetail } from '../hooks/usePokemonDetail'
 import '../components/PokemonDetail.css'
 import { ProgressBar } from '../components/ProgressBar'
 
 export function PokemonDetail () {
+  const navigate = useNavigate()
   const { pokemonName } = useParams()
   const { pokemonDetail } = usePokemonDetail(pokemonName)
 
   return (
-    <div>
-        <h1>Pokemon</h1>
+    <>
         { pokemonDetail &&
             <div>
-                <h3>{pokemonDetail.name.toUpperCase()}</h3>
+                <h1>{pokemonDetail.name.toUpperCase()}</h1>
                 <div className='detailsContent'>
-                  <img src={pokemonDetail.img} alt={pokemonDetail.name} />
+                  <img className='detailImg' src={pokemonDetail.img} alt={pokemonDetail.name} />
                     <ul className='statList'>
-                      {
-                        pokemonDetail.stats.map(stat => {
-                          return (
-                            <li key={stat.name} className='statRow'>
-                              <p>{stat.name.toUpperCase()}</p>
-                              <ProgressBar baseStat ={stat.base_stat} />
-                            </li>
-                          )
-                        })
-                      }
+                      <div>
+                          <h3>Base Stats</h3>
+                         {
+                          pokemonDetail.stats.map(stat => {
+                            return (
+                              <li key={stat.name} className='statRow'>
+                                <p>{stat.name.toUpperCase()}</p>
+                                <ProgressBar baseStat ={stat.base_stat} />
+                              </li>
+                            )
+                          })
+                        }
+                      </div>
+
                     </ul>
                 </div>
             </div>
         }
-    </div>
+        <footer>
+          <button onClick={() => navigate('/')}>BACK</button>
+        </footer>
+    </>
 
   )
 }

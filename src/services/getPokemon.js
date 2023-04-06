@@ -1,6 +1,6 @@
 const POKEMON_API = 'https://pokeapi.co/api/v2/pokemon/'
 
-export async function getPokemon(id) {
+export async function getPokemon (id) {
   const res = fetch(`${POKEMON_API}${id}`)
   const json = await (await res).json()
 
@@ -12,10 +12,9 @@ export async function getPokemon(id) {
   }
 }
 
-export async function getPokemonByName(name) {
+export async function getPokemonByName (name) {
   const res = await fetch(`${POKEMON_API}${name}`)
   const json = await res.json()
-
   const data = {
     id: json.order,
     name: json.name,
