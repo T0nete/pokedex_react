@@ -3,25 +3,25 @@ import './Filters.css'
 import { useContext } from 'react'
 import { PokemonPaginationContext } from '../contexts/pokemonPagination'
 
-export function Filters ({ setSearchPokemon, fetchPokemonList }) {
-  const { setPaginationNumber } = useContext(PokemonPaginationContext)
+export function Filters () {
+  const { setPaginationNumber, setPokemonSearch } = useContext(PokemonPaginationContext)
 
   const handleOnSelect = (event) => {
     setPaginationNumber(event.target.value)
   }
 
   const handleOnChange = (event) => {
-    fetchPokemonByName(event.target.value)
+    // fetchPokemonByName(event.target.value)
   }
 
   const handleOnSubmit = (event) => {
     console.log(event.target.searchPokemon.value)
     event.preventDefault()
-    setSearchPokemon(event.target.searchPokemon.value)
+    setPokemonSearch(event.target.searchPokemon.value)
   }
 
   const handleClearFitlers = () => {
-    fetchPokemonList()
+    // fetchPokemonList()
   }
 
   return (

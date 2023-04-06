@@ -2,8 +2,11 @@
 import { Link } from 'react-router-dom'
 import './PokemonList.css'
 import { TypeIcon } from './Types'
+import { usePokemon } from '../hooks/usePokemon'
 
-export function PokemonList ({ pokemonList }) {
+export function PokemonList () {
+  const { pokemonList, loadingPokemon, errorPokemon, setSearchPokemon, fetchPokemonList } = usePokemon()
+
   return (
     <ul className='pokemonList'>
     {

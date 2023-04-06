@@ -8,6 +8,7 @@ export function PokemonPaginationProvider ({ children }) {
     start: 1,
     end: paginationNumber
   })
+  const [pokemonSearch, setPokemonSearch] = useState('')
 
   useEffect(() => {
     setPokemonPagination(prevState => {
@@ -34,7 +35,9 @@ export function PokemonPaginationProvider ({ children }) {
       pokemonPagination,
       setPokemonPagination,
       paginationNumber,
-      setPaginationNumber
+      setPaginationNumber,
+      pokemonSearch,
+      setPokemonSearch
     }}
     >
       {children}
