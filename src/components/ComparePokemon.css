@@ -1,0 +1,69 @@
+.compare {
+    background: #223f58;
+    display: none;
+    padding: 32px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    width: 200px;
+}
+
+.compare li {
+    list-style: none;
+}
+
+.compare-button {
+    align-items: center;
+    border-radius: 9999px;
+    background: #223f58;
+    cursor: pointer;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    padding: 4px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    transition: all .3s ease;
+    width: 200px;
+    z-index: 9999;
+    gap: 6px;
+}
+
+.compare-button img {
+    width: 15%;
+}
+
+.compare-button:hover {
+    scale: 1.1;
+}
+
+.compare-button ~ input:checked ~ .compare {
+    height: 100%;
+    display: block;
+}
+
+.compareList {
+    padding-inline-start: 0px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row img {
+    object-fit: contain;
+}
+
+.clearButton {
+    display: flex;
+    margin: 0px;
+    padding: 0 6px 0 6px;
+}
+
+.buttonsRow {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6px;
+}

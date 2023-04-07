@@ -1,8 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
-
 import { usePokemonDetail } from '../hooks/usePokemonDetail'
-import '../components/PokemonDetail.css'
 import { ProgressBar } from '../components/ProgressBar'
+import '../components/PokemonDetail.css'
 
 export function PokemonDetail () {
   const navigate = useNavigate()

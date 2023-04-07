@@ -1,11 +1,12 @@
+import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ErrorPage from './routes/errorPage'
 import { PokemonDetail } from './routes/pokemonDetailPage'
-import PokemonHomePage from './routes/App'
 import { PokemonPaginationProvider } from './contexts/pokemonPagination'
+import { PokemonComparePage } from './routes/PokemonComparePage'
+import PokemonHomePage from './routes/App'
+import ErrorPage from './routes/errorPage'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: 'pokemon/:pokemonName',
     element: <PokemonDetail />
+  },
+  {
+    path: 'compare/pokemon1/:pokemonName1/pokemon2/:pokemonName2',
+    element: <PokemonComparePage />
   }
 
 ])
