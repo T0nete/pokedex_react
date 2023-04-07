@@ -10,12 +10,7 @@ export function Filters () {
     setPaginationNumber(event.target.value)
   }
 
-  const handleOnChange = (event) => {
-    // fetchPokemonByName(event.target.value)
-  }
-
   const handleOnSubmit = (event) => {
-    console.log(event.target.searchPokemon.value)
     event.preventDefault()
     setPokemonSearch(event.target.searchPokemon.value)
   }

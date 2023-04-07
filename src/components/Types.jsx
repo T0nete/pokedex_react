@@ -45,7 +45,3 @@ const getIcon = ({ type }) => {
     case 'water' : return waterIcon
   }
 }
-
-const BugType = () => {
-
-}

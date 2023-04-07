@@ -10,26 +10,22 @@ export const usePokemon = () => {
 
   const { paginationNumber, pokemonPagination, pokemonSearch } = useContext(PokemonPaginationContext)
 
-  async function fetchPokemonList () {
-    const start = pokemonPagination.start
-    const end = pokemonPagination.end
-
-    // console.log('start=' + start)
-    // console.log('end=' + pokemonPagination.end)
-    const list = []
-
-    for (let i = start; i <= pokemonPagination.end; i++) {
-      list.push(await getPokemon(i))
+  useEffect(() => {
+    async function fetchPokemonList (start, end) {
+      // const start = pokemonPagination.start
+      // const end = pokemonPagination.end
+      const list = []
+      for (let i = start; i <= end; i++) {
+        const poke = await getPokemon(i)
+        list.push(poke)
+      }
+      return list
+      // setPokemonList(list)
     }
 
-    setPokemonList(list)
-  }
-
-  useEffect(() => {
-    console.log('useEffect')
     try {
       setLoadingPokemon(true)
-      fetchPokemonList()
+      fetchPokemonList(pokemonPagination.start, pokemonPagination.end).then(list => setPokemonList(list))
     } catch (error) {
       setErrorPokemon(error.message)
     } finally {
@@ -41,7 +37,7 @@ export const usePokemon = () => {
     const list = []
     const pokemon = await getPokemonByName(pokemonSearch)
     list.push(pokemon)
-    await setPokemonList(list)
+    setPokemonList(list)
   }
 
   useEffect(() => {
@@ -76,5 +72,5 @@ export const usePokemon = () => {
     }
   }
 
-  return { pokemonList, fetchPokemonList, loadingPokemon, errorPokemon, fetchPokemonByName, searchPokemon, setSearchPokemon }
+  return { pokemonList, loadingPokemon, errorPokemon, fetchPokemonByName, searchPokemon, setSearchPokemon }
 }

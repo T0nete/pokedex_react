@@ -43,7 +43,17 @@ h1 {
 
 .typeIcon {
     display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+}
+
+.pokemonDetailTop {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+}
+
+.pokeballIconCompare {
+    padding: 10px;
 }
