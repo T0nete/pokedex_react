@@ -1,4 +1,4 @@
-export const compareInitialState = []
+export const compareInitialState = JSON.parse(window.localStorage.getItem('compare')) || []
 
 export const COMPARE_ACTIONS_TYPES = {
   CHECK_POKEMON_IN_COMPARE: 'CHECK_PRODUCT_IN_COMPARE',
@@ -7,12 +7,20 @@ export const COMPARE_ACTIONS_TYPES = {
   CLEAR_COMPARATION: 'CLEAR_COMPARATION'
 }
 
+export const updateLocalStorage = state => {
+  window.localStorage.setItem('compare', JSON.stringify(state))
+}
+
 export const compareReducer = (state, action) => {
   const { type: actionType, payload: actionPayload } = action
   switch (actionType) {
     case COMPARE_ACTIONS_TYPES.CHECK_POKEMON_IN_COMPARE: {
       const { id } = actionPayload
-      return state.some(poke => poke.id === id)
+
+      const newState = state.some(poke => poke.id === id)
+      updateLocalStorage(newState)
+
+      return newState
     }
     case COMPARE_ACTIONS_TYPES.ADD_TO_COMPARATION: {
       if (state.length === 2) return state
@@ -21,22 +29,29 @@ export const compareReducer = (state, action) => {
       const comparePokemonId = state.findIndex(poke => poke.id === id)
       if (comparePokemonId >= 0) return state
 
-      return [
+      const newState = [
         ...state,
         {
           ...actionPayload
         }
       ]
+
+      updateLocalStorage(newState)
+
+      return newState
     }
     case COMPARE_ACTIONS_TYPES.REMOVE_FROM_COMPARATION: {
       const { id } = actionPayload
-      console.log(id)
-      console.log(state)
-      return state.filter(poke => poke.id !== id)
+      const newState = state.filter(poke => poke.id !== id)
+
+      updateLocalStorage(newState)
+
+      return newState
     }
     case COMPARE_ACTIONS_TYPES.CLEAR_COMPARATION: {
-      return compareInitialState
+      const newState = compareInitialState
+      updateLocalStorage(newState)
+      return newState
     }
   }
-  return state
 }
