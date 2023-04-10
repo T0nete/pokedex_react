@@ -5,14 +5,14 @@ import { usePokemon } from '../hooks/usePokemon'
 import { ComparePokemon } from './ComparePokemon'
 import { useComparePokemon } from '../hooks/useComparePokemon'
 import pokeballIcon from '../assets/pokemon-icon.svg'
-import pokeballOpen from '../assets/pokeball-open.png'
 
 export function PokemonList () {
-  const { pokemonList, loadingPokemon, errorPokemon, setSearchPokemon, fetchPokemonList } = usePokemon()
-  const { comparePokemon, addPokemonToCompare, checkPokemonInCompare } = useComparePokemon()
+  const { pokemonList, loadingPokemon } = usePokemon()
+  const { addPokemonToCompare } = useComparePokemon()
 
   return (
     <div>
+        {loadingPokemon && <p>Loading...</p>}
         <ul className='pokemonList'>
         {
             pokemonList.map(pokemon => (

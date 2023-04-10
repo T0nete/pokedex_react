@@ -1,10 +1,9 @@
 import { useId } from 'react'
 import { useComparePokemon } from '../hooks/useComparePokemon'
 import pokeballIcon from '../assets/pokemon-icon.svg'
-import pokeballOpen from '../assets/pokeball-open.png'
 import removeIcon from '../assets/remove.png'
-import './ComparePokemon.css'
 import { Link } from 'react-router-dom'
+import './ComparePokemon.css'
 
 function CartPokemon ({ id, name, img }) {
   const { removePokemonFromCompare } = useComparePokemon()
@@ -28,7 +27,7 @@ function renderButtons (comparePokemon) {
 
 export function ComparePokemon () {
   const cartCheckboxId = useId()
-  const { comparePokemon, addPokemonToCompare, clearCompare } = useComparePokemon()
+  const { comparePokemon, clearCompare } = useComparePokemon()
 
   return (
       <>

@@ -3,7 +3,9 @@ h2, h3 {
 }
 
 .statList {
-    gap: 16px;;
+    padding-inline-start: 0px;
+    padding: 16px;
+    gap: 16px;
 }
 
 .detailsContent {

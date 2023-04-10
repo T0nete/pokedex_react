@@ -1,4 +1,4 @@
-import { useReducer, useState, createContext } from 'react'
+import { useReducer, createContext } from 'react'
 import { compareReducer, compareInitialState, COMPARE_ACTIONS_TYPES } from '../reducers/comparationPokemon'
 
 export const ComparePokemonContext = createContext()

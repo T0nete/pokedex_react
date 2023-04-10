@@ -49,7 +49,7 @@ export const compareReducer = (state, action) => {
       return newState
     }
     case COMPARE_ACTIONS_TYPES.CLEAR_COMPARATION: {
-      const newState = compareInitialState
+      const newState = []
       updateLocalStorage(newState)
       return newState
     }

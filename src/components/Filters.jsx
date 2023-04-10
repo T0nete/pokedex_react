@@ -15,9 +15,10 @@ export function Filters () {
     setPokemonSearch(event.target.searchPokemon.value)
   }
 
-  const handleClearFitlers = () => {
-    // fetchPokemonList()
-  }
+  // const handleClearFitlers = () => {
+  //   setPaginationNumber(20)
+  //   setPokemonSearch('')
+  // }
 
   return (
     <section className='rowFilters'>
@@ -39,7 +40,7 @@ export function Filters () {
             placeholder='Bulbasaur' />
         </form>
       </div>
-      <button onClick={() => handleClearFitlers()}>Clear Filters</button>
+      {/* <button onClick={() => handleClearFitlers()}>Clear Filters</button> */}
     </section>
   )
 }
