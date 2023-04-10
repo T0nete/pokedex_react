@@ -29,7 +29,6 @@ export function PokemonDetail () {
                           })
                         }
                       </div>
-
                     </ul>
                 </div>
             </div>

@@ -1,0 +1,12 @@
+.compareContent{
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 1.5fr;
+    align-items: center;
+}
+
+.baseStat {
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

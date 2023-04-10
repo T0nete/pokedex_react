@@ -16,7 +16,7 @@ function CartPokemon ({ id, name, img }) {
         />
         <div className='row'>
           <p><strong>{name.toUpperCase()}</strong></p>
-          <img onClick={() => removePokemonFromCompare(id)} src={removeIcon}/>
+          <img onClick={() => removePokemonFromCompare({ id })} src={removeIcon}/>
         </div>
       </li>
   )
